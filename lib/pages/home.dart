@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:proyecto_currys/pages/configuracion.dart';
 import 'package:proyecto_currys/pages/creacion_curriculum.dart';
 import 'package:proyecto_currys/pages/importacion_platilla.dart';
+import 'package:proyecto_currys/pages/login_page.dart';
 import 'package:proyecto_currys/pages/perfiles.dart';
 import 'package:proyecto_currys/pages/seleccionar_platilla.dart';
 import 'package:proyecto_currys/pages/ver_curriculums.dart';
 
 class home extends StatefulWidget {
-  home(FirstRoute firstRoute);
-
   homeState createState() => homeState();
 }
 
@@ -27,6 +26,8 @@ class homeState extends State<home> {
         return Ver_curriculum();
       case 5:
         return Configuracion();
+      case 6:
+        return Configuracion();
     }
   }
 
@@ -35,14 +36,22 @@ class homeState extends State<home> {
       _selectDrawerItem = pos;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: const Center(
-          child: Text("Curry`s"),
-        )),
+          title: const Center(
+            child: Text("Currys"),
+          ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                (Icons.notifications),
+              ),
+              onPressed: () {},
+            )
+          ],
+        ),
         drawer: Drawer(
           child: ListView(
             children: <Widget>[
@@ -65,14 +74,14 @@ class homeState extends State<home> {
               ),
               ListTile(
                 title: Text("Seleccion de platilla"),
-                leading: Icon(Icons.task),
+                leading: Icon(Icons.file_copy),
                 onTap: () {
                   _onSelectItem(2);
                 },
               ),
               ListTile(
                 title: Text("Importar plantilla"),
-                leading: Icon(Icons.document_scanner),
+                leading: Icon(Icons.file_open_outlined),
                 onTap: () {
                   _onSelectItem(3);
                 },
@@ -91,33 +100,19 @@ class homeState extends State<home> {
                   _onSelectItem(5);
                 },
               ),
+              ListTile(
+                title: Text("Cerrar Sesion"),
+                leading: Icon(Icons.exit_to_app),
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: ((context) => LoginPage())));
+                },
+              ),
             ],
           ),
         ),
-        body: _getDrawerItemWidget(_selectDrawerItem));
-  }
-}
-
-class FirstRoute extends StatelessWidget {
-  const FirstRoute({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('First Route'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          child: const Text('Open route'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SecondRoute()),
-            );
-          },
-        ),
-      ),
-    );
+        body: _getDrawerItemWidget(
+          _selectDrawerItem,
+        ));
   }
 }

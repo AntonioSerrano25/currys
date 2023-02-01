@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto_currys/pages/home.dart';
+import 'package:proyecto_currys/pages/login_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,11 +10,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: unnecessary_new
     return new MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Curry`s',
-        theme: new ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: (home(FirstRoute())));
+      debugShowCheckedModeBanner: false,
+       home: const LoginPage(),
+    );
+    
   }
+  
 }
