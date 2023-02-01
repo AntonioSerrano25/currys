@@ -5,8 +5,6 @@ class Ver_curriculum extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("VER CURRICULUM", style: TextStyle(fontSize: 30)),
-    );
+    return const Center();
   }
 }

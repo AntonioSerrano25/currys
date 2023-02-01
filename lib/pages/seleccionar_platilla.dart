@@ -5,8 +5,6 @@ class seleccion_plantilas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("SELECCION DE PLATILLA", style: TextStyle(fontSize: 30)),
-    );
+    return Center();
   }
 }

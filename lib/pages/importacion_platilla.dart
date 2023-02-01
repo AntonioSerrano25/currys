@@ -6,7 +6,7 @@ class importacion_plantilla extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("Importar plantilla", style: TextStyle(fontSize: 30)),
+      
     );
   }
 }
